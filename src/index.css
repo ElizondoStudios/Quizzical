@@ -1,0 +1,121 @@
+html{
+    font-family: 'Karla', sans-serif;
+    background-color: #F5F7FB;
+}
+
+/* ############## title screen ############## */
+
+.title-screen{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    margin-top: 200px;
+}
+
+    .title-screen>h1{
+        font-weight: 700;
+        font-size: 31.25px;
+        line-height: 37px;
+        text-align: center;
+        margin: 0;
+
+        color: #293264;
+    }
+
+    .title-screen>h3{
+        font-family: 'Inter', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+        margin-top: 7px;
+
+        color: #293264;
+    }
+
+    .title-screen>button{
+        width: 193px;
+        height: 52px;
+        background: #4D5B9E;
+        color: white;
+        border-radius: 15px;
+        border: 0px;
+        margin-top: 30px;
+
+        cursor: pointer;
+    }
+
+/* ############## App ############## */
+
+    .App--questions{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+
+/* ############## question ############## */
+
+.question{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 600px;
+    padding: 20px;
+}
+
+    .question>h2{
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 19px;
+
+        color: #293264;
+    }
+
+    .question--buttons{
+        display: flex;
+        align-items: center;
+        gap: 13px;
+    }
+
+        .question--buttons--unselected{
+            min-height: 24px;
+
+            cursor: pointer;
+
+            background: #F5F7FB;
+            color: #293264;
+
+            border: 1px solid #4D5B9E;
+            border-radius: 8px;
+
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 12px;
+            text-align: center;
+        }
+
+        .question--buttons--selected{
+            min-height: 24px;
+
+            cursor: pointer;
+
+            background-color: #D6DBF5;
+            color: #293264;
+
+            border: 0px;
+            border-radius: 8px;
+
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 12px;
+            text-align: center;
+
+        }
+
