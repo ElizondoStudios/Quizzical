@@ -35,7 +35,15 @@ html{
         color: #293264;
     }
 
-    .title-screen>button{
+/* ############## App ############## */
+
+    .App--questions{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .UI--button{
         width: 193px;
         height: 52px;
         background: #4D5B9E;
@@ -46,16 +54,6 @@ html{
 
         cursor: pointer;
     }
-
-/* ############## App ############## */
-
-    .App--questions{
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-
-
 /* ############## question ############## */
 
 .question{
@@ -64,6 +62,8 @@ html{
     flex-direction: column;
     width: 600px;
     padding: 20px;
+
+    border-bottom: 0.794239px solid #DBDEF0;
 }
 
     .question>h2{
@@ -97,6 +97,8 @@ html{
             font-size: 16px;
             line-height: 12px;
             text-align: center;
+
+            padding: 5px;
         }
 
         .question--buttons--selected{

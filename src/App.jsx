@@ -1,6 +1,7 @@
 import React from "react"
 import Question from "./components/Question"
 import TitleScreen from "./components/TitleScreen"
+import { nanoid } from "nanoid"
 
 // import { data } from "./data"
 
@@ -24,6 +25,7 @@ function App() {
       question={e.question} 
       correct={e.correct_answer}
       incorrect={e.incorrect_answers}
+      key={nanoid()}
       />
     )
 
@@ -32,6 +34,7 @@ function App() {
       {gameStart? 
         <div className="App--questions">
           {questionElements}
+          <button className="UI--button">Check answers</button>
         </div>
        :<TitleScreen toggleStart={toggleStart}/>}
     </div>

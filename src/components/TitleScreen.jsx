@@ -3,7 +3,7 @@ function TitleScreen (props){
         <div className="title-screen">
             <h1>Quizzical</h1>
             <h3>Test your general knowledge</h3>
-            <button onClick={props.toggleStart}>Start quizz</button>
+            <button onClick={props.toggleStart} className="UI--button">Start quizz</button>
         </div>
     )
 }
