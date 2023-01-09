@@ -54,6 +54,9 @@ html{
 
         cursor: pointer;
     }
+        .UI--button:hover{
+            background: #3b4577;
+        }
 /* ############## question ############## */
 
 .question{
@@ -101,6 +104,11 @@ html{
             padding: 5px;
         }
 
+            .question--buttons--unselected:hover{
+                border: 1px solid rgba(77, 91, 158, 0.616);
+                color: #293264cc;
+            }
+
         .question--buttons--selected{
             min-height: 24px;
 
@@ -119,5 +127,27 @@ html{
             line-height: 12px;
             text-align: center;
 
+            padding: 5px;
+        }
+
+        .question--buttons--chosen{
+            min-height: 24px;
+
+            cursor: pointer;
+
+            background-color: #94D7A2;
+            color: #293264;
+
+            border: 0px;
+            border-radius: 8px;
+
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 12px;
+            text-align: center;
+
+            padding: 5px;
         }
 

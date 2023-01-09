@@ -9,9 +9,14 @@ import { nanoid } from "nanoid"
 function App() {
   const [gameStart, setGameStart]= React.useState(false)
   const [questions, setQuestions]= React.useState([])
+  const [gameOver, setGameOver]= React.useState(false)
 
   function toggleStart(){
     setGameStart(prevGameStart => !prevGameStart)
+  }
+
+  function toggleGameOver(){
+    setGameOver(prevGameOver => !prevGameOver)
   }
 
   React.useEffect(()=>{
@@ -34,7 +39,7 @@ function App() {
       {gameStart? 
         <div className="App--questions">
           {questionElements}
-          <button className="UI--button">Check answers</button>
+          <button className="UI--button" onClick={toggleGameOver}>Check answers</button>
         </div>
        :<TitleScreen toggleStart={toggleStart}/>}
     </div>
