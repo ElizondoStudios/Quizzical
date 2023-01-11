@@ -103,7 +103,7 @@ function App() {
         <div className="App--questions">
           {questionElements}
           <div className="App--questions--UI">
-            {gameOver && <h2>You scored {scorePoints() && (score.current/2)}/5 correct answers</h2>}
+            {gameOver && <h2>You scored {scorePoints() && (score.current)}/5 correct answers</h2>}
             <button className="UI--button" onClick={()=>(gameOver? resetGame(): toggleGameOver())}>{gameOver?"Play again":"Check answers"}</button>
           </div>
         </div>
