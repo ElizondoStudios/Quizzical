@@ -1,5 +1,6 @@
 import { nanoid } from "nanoid";
 import React from "react";
+import { htmlEntities } from "../htmlEntities";
 
 function Question (props){
     let answerStyle= "question--buttons--unselected"
@@ -7,6 +8,7 @@ function Question (props){
     function handleClick(event){
         props.changeAnswer(props.question, event.target.value, props.correct)
     }
+
 
     function chooseStyle(e){
         if(props.gameOver){
@@ -32,13 +34,13 @@ function Question (props){
          value={e}
          onClick={handleClick}
         >
-            {e.replaceAll("&#039;", "'").replaceAll("&quot;", '"').replaceAll("&ldquo;","“").replaceAll("&rdquo;", "”")}
+            {htmlEntities(e)}
         </button>
         )
 
     return(
         <div className="question">
-            <h2>{props.question.replaceAll("&#039;", "'").replaceAll("&quot;", '"').replaceAll("&ldquo;","“").replaceAll("&rdquo;", "”")}</h2>
+            <h2>{htmlEntities(props.question)}</h2>
             <div className="question--buttons">
                 {buttons}
             </div>
