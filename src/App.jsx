@@ -3,14 +3,16 @@ import Question from "./components/Question"
 import TitleScreen from "./components/TitleScreen"
 import { nanoid } from "nanoid"
 
-// import { data } from "./data"
-
 
 function App() {
   const [gameStart, setGameStart]= React.useState(false)
   const [questions, setQuestions]= React.useState([])
   const [gameOver, setGameOver]= React.useState(false)
-  const [answers, setAnswer]= React.useState([])
+  const [answers, setAnswers]= React.useState([])
+  const [numGames, setNumGames]= React.useState([1])
+
+  const shffldAns= React.useRef([])
+  const score= React.useRef(0);
 
   function toggleStart(){
     setGameStart(prevGameStart => !prevGameStart)
@@ -32,7 +34,7 @@ function App() {
   }
 
   function changeAnswer(question, answer, correct){
-    setAnswer(prevAnswer =>{
+    setAnswers(prevAnswer =>{
       if(!prevAnswer)
         return [{question: question, answer: answer, correct: correct}]
       if(prevAnswer.some(e => e.question===question))
@@ -51,21 +53,44 @@ function App() {
     return array
   }
 
+  function scorePoints(){
+    for (let i=answers.length-1; i>=0; i--){
+      if(answers[i])
+        if(answers[i].answer===answers[i].correct)
+          score.current= score.current+1
+    }
+
+    return true
+  }
+
+  function resetGame(){
+    score.current=0;
+    setAnswers([])
+    setNumGames(prevNumGames => prevNumGames+1)
+    toggleGameOver()
+  }
+
   React.useEffect(()=>{
     fetch("https://opentdb.com/api.php?amount=5&type=multiple")
             .then(res => res.json())
+            .then(data => {
+              data.results.forEach(e => 
+                {shffldAns.current= [...shffldAns.current, shuffleArray([e.correct_answer, ...e.incorrect_answers])]})
+                return data
+            })
             .then(data => setQuestions(data.results))
-  },[])
+  },[numGames])
 
 
-  const questionElements= questions.map(e =>
+  const questionElements= questions.map((e, indx) =>
       <Question 
        question={e.question} 
        correct={e.correct_answer}
-       options={shuffleArray([...e.incorrect_answers, e.correct_answer])}
+       options={shffldAns.current[shffldAns.current.length-5+indx]}
        key={nanoid()}
        answer={findAnswer(e.question)}
        changeAnswer={changeAnswer}
+       gameOver={gameOver}
        />
   )
 
@@ -75,7 +100,10 @@ function App() {
       {gameStart? 
         <div className="App--questions">
           {questionElements}
-          <button className="UI--button" onClick={toggleGameOver}>Check answers</button>
+          <div className="App--questions--UI">
+            {gameOver && <h2>You scored {scorePoints() && (score.current/2)}/5 correct answers</h2>}
+            <button className="UI--button" onClick={()=>(gameOver? resetGame(): toggleGameOver())}>{gameOver?"Play again":"Check answers"}</button>
+          </div>
         </div>
        :<TitleScreen toggleStart={toggleStart}/>}
     </div>

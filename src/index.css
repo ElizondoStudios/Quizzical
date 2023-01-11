@@ -43,6 +43,20 @@ html{
         flex-direction: column;
     }
 
+        .App--questions--UI{
+            display: flex;
+            padding: 30px;
+            gap: 20px;
+        }
+
+            .App--questions--UI>h2{
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 19px;
+
+                color: #293264;
+            }
+
     .UI--button{
         width: 193px;
         height: 52px;
@@ -50,7 +64,7 @@ html{
         color: white;
         border-radius: 15px;
         border: 0px;
-        margin-top: 30px;
+        /* margin-top: 30px; */
 
         cursor: pointer;
     }
@@ -130,12 +144,33 @@ html{
             padding: 5px;
         }
 
-        .question--buttons--chosen{
+        .question--buttons--correct{
             min-height: 24px;
 
             cursor: pointer;
 
             background-color: #94D7A2;
+            color: #293264;
+
+            border: 0px;
+            border-radius: 8px;
+
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 12px;
+            text-align: center;
+
+            padding: 5px;
+        }
+
+        .question--buttons--incorrect{
+            min-height: 24px;
+
+            cursor: pointer;
+
+            background-color: #F8BCBC;
             color: #293264;
 
             border: 0px;
