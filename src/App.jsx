@@ -1,6 +1,7 @@
 import React from "react"
 import Question from "./components/Question"
 import TitleScreen from "./components/TitleScreen"
+import Confetti from 'react-confetti'
 import { nanoid } from "nanoid"
 
 
@@ -97,6 +98,7 @@ function App() {
 
   return (
     <div className="App">
+      {score.current>=5 && <Confetti/>}
       {gameStart? 
         <div className="App--questions">
           {questionElements}
