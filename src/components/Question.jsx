@@ -13,16 +13,16 @@ function Question (props){
     function chooseStyle(e){
         if(props.gameOver){
             if(props.correct===e){
-                answerStyle= "question--buttons--correct"
+                answerStyle= "question--buttons--button correct"
             }else if(props.answer===e && props.answer!=props.correct){
-                answerStyle= "question--buttons--incorrect"
+                answerStyle= "question--buttons--button incorrect"
             }else{
-                answerStyle= "question--buttons--unselected"
+                answerStyle= "question--buttons--button unselected"
             }
         }else{
             props.answer===e?
-            answerStyle= "question--buttons--selected":
-            answerStyle= "question--buttons--unselected"
+            answerStyle= "question--buttons--button selected":
+            answerStyle= "question--buttons--button unselected"
         }
         return true
     }

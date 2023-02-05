@@ -97,8 +97,7 @@ html{
         align-items: center;
         gap: 13px;
     }
-
-        .question--buttons--unselected{
+        .question--buttons--button{
             min-height: 24px;
 
             cursor: pointer;
@@ -106,7 +105,7 @@ html{
             background: #F5F7FB;
             color: #293264;
 
-            border: 1px solid #4D5B9E;
+            border: 0px;
             border-radius: 8px;
 
             font-family: 'Inter';
@@ -119,71 +118,27 @@ html{
             padding: 5px;
         }
 
-            .question--buttons--unselected:hover{
+        .unselected{
+            border: 1px solid #4D5B9E;
+        }
+
+            .unselected:hover{
                 border: 1px solid rgba(77, 91, 158, 0.616);
                 color: #293264cc;
             }
 
-        .question--buttons--selected{
-            min-height: 24px;
-
-            cursor: pointer;
-
+        .selected{
             background-color: #D6DBF5;
             color: #293264;
-
-            border: 0px;
-            border-radius: 8px;
-
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 500;
-            font-size: 16px;
-            line-height: 12px;
-            text-align: center;
-
-            padding: 5px;
         }
 
-        .question--buttons--correct{
-            min-height: 24px;
-
-            cursor: pointer;
-
+        .correct{
             background-color: #94D7A2;
             color: #293264;
-
-            border: 0px;
-            border-radius: 8px;
-
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 500;
-            font-size: 16px;
-            line-height: 12px;
-            text-align: center;
-
-            padding: 5px;
         }
 
-        .question--buttons--incorrect{
-            min-height: 24px;
-
-            cursor: pointer;
-
+        .incorrect{
             background-color: #F8BCBC;
             color: #293264;
-
-            border: 0px;
-            border-radius: 8px;
-
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 500;
-            font-size: 16px;
-            line-height: 12px;
-            text-align: center;
-
-            padding: 5px;
         }
 
